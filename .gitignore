@@ -1,0 +1,8 @@
+# Never commit secrets
+.env
+.env.*
+.dev.vars
+worker/wrangler.toml
+node_modules/
+.wrangler/
+worker/.wrangler/

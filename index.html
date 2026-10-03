@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ricardo's Cert Lab</title>
+  <meta name="description" content="Space-themed study lab: notes, practice questions, timed mock exams, flashcards and an optional AI tutor for ITIL 4, FEMA ICS, incident management and AWS Cloud Practitioner.">
+  <meta name="theme-color" content="#070b1f">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem('certlab:v1') || '{}');
+        document.documentElement.setAttribute('data-theme', s.theme || 'dark');
+        document.documentElement.setAttribute('lang', s.lang || 'en');
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="nebula" aria-hidden="true"></div>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true">🪐</span>
+        <span class="brand-text">Ricardo's <strong>Cert Lab</strong></span>
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#/" data-nav="home" data-i18n="nav.home">Home</a>
+        <a href="#/roadmap" data-nav="roadmap" data-i18n="nav.roadmap">Roadmap</a>
+        <a href="#/progress" data-nav="progress" data-i18n="nav.progress">Progress</a>
+      </nav>
+      <div class="top-actions">
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+        <button class="icon-btn" id="settingsBtn" type="button" aria-label="AI settings" title="AI settings">⚙️</button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle light/dark" title="Toggle light/dark">
+          <span class="i-moon" aria-hidden="true">🌙</span><span class="i-sun" aria-hidden="true">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container" tabindex="-1">
+    <div class="loading" id="loading"><span class="spinner"></span> Loading…</div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer.original">All practice questions are original and written from public syllabus concepts — they are not real exam questions. Always confirm exam details on the official sites.</p>
+      <p class="muted" data-i18n-html="footer.storage">Progress and AI settings are saved only in this browser (localStorage).</p>
+    </div>
+  </footer>
+
+  <!-- AI tutor (floating button + drawer) -->
+  <button class="tutor-fab" id="tutorFab" type="button" aria-controls="tutor" aria-expanded="false"><span class="tutor-fab-label">Ask the AI tutor</span></button>
+  <aside class="tutor" id="tutor" aria-label="AI tutor" hidden></aside>
+  <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/tutors.js"></script>
+  <script src="data/manifest.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/tutor.js"></script>
+</body>
+</html>
